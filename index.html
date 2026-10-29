@@ -124,6 +124,63 @@ font:400 clamp(1.5rem,6vw,2.1rem)/1.25 var(--script);color:var(--rose-d)}
 border:2px solid var(--line);background:#fff;color:var(--rose-d);font-size:22px;line-height:1;cursor:pointer;box-shadow:0 8px 20px rgba(238,134,168,.35)}
 .snd[hidden]{display:none}.snd.off{opacity:.65}
 
+/* Pet */
+.petbox{position:relative;max-width:260px;margin:0 auto 18px}
+.pimg{transition:filter .5s}
+.pimg .ph{margin:0;aspect-ratio:1;border:6px solid #fff;border-radius:28px;box-shadow:0 10px 26px rgba(190,90,130,.3);background:linear-gradient(135deg,#ffe3ec,#ebdffa);font-size:5rem}
+.petbox.chomp .pimg{animation:chomp .5s 2}.petbox.wash .pimg{animation:wash .35s 4}
+@keyframes chomp{50%{transform:scale(1.1,.92)}}
+@keyframes wash{25%{transform:rotate(-5deg)}75%{transform:rotate(5deg)}}
+.say{position:absolute;top:-14px;right:-18px;background:#fff;border:2px solid var(--line);border-radius:18px;padding:6px 12px;font-size:.95rem;
+box-shadow:0 6px 16px rgba(238,134,168,.25);max-width:160px;line-height:1.3}
+.fx span{position:absolute;pointer-events:none;font-size:30px}
+.fx .food{left:50%;top:-20px;animation:drop .8s ease-in forwards}
+.fx .bub{bottom:10px;animation:rise 1.4s ease-out forwards}
+@keyframes drop{to{transform:translateY(120px);opacity:0}}
+@keyframes rise{to{transform:translateY(-160px);opacity:0}}
+.bars{display:grid;gap:10px;margin:0 auto 18px;max-width:340px;text-align:left}
+.bar span{font-size:.9rem;color:var(--mute)}
+.bar i{display:block;height:14px;border-radius:10px;background:#ffe3ec;overflow:hidden;margin-top:2px}
+.bar b{display:block;height:100%;width:0;border-radius:10px;background:linear-gradient(90deg,#f8bcd0,var(--rose));transition:width .5s}
+.pbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.pbtns .cta{font-size:1.4rem;padding:8px 22px}
+/* Puzzle */
+.pzboard{display:grid;gap:4px;width:min(100%,380px);aspect-ratio:1;margin:0 auto 14px}
+.pz{position:relative;overflow:hidden;border:0;padding:0;border-radius:10px;cursor:pointer;background:linear-gradient(135deg,#ffe3ec,#ebdffa);font:400 2.4rem var(--script);color:var(--rose-d)}
+.pz img{position:absolute;max-width:none;object-fit:cover;pointer-events:none}
+.pz.sel{outline:3px solid var(--rose);transform:scale(.94)}
+.pz.ok{box-shadow:inset 0 0 0 2px rgba(255,255,255,.9)}
+.pzboard.done{gap:0}.pzboard.done .pz{border-radius:0}
+.pzwin{font-family:var(--script);font-size:1.8rem;color:var(--rose-d);min-height:1.4em;margin-top:6px}
+/* Moment */
+.moment{max-width:520px;margin:0 auto;text-align:center}
+.moment .ph{aspect-ratio:4/5;max-height:70vh;width:100%;margin:0 auto 24px;border:10px solid #fff;border-radius:6px;transform:rotate(-1.5deg);
+box-shadow:0 14px 36px rgba(190,90,130,.3);background:linear-gradient(135deg,#ffe3ec,#ebdffa);font-size:5rem}
+.moment h2{margin-bottom:12px}
+.moment p{font:400 clamp(1.7rem,6vw,2.2rem)/1.3 var(--script);color:var(--ink)}
+/* New Year */
+.card.wide{max-width:860px}
+.card .counter{margin:0 0 18px}
+.card ul{list-style:none;padding:0;margin:14px 0 22px;display:grid;gap:6px;color:var(--ink)}
+.nygrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.nygrid .ph{margin:0;aspect-ratio:auto;min-height:300px;height:100%;border:6px solid #fff;border-radius:18px;box-shadow:0 8px 22px rgba(190,90,130,.25);background:linear-gradient(135deg,#ffe3ec,#ebdffa);font-size:4rem}
+.nygrid iframe{width:100%;height:100%;min-height:300px;border:0;border-radius:18px;box-shadow:0 8px 22px rgba(190,90,130,.25)}
+.maplink{display:inline-block;margin-top:10px;color:var(--rose-d);font-size:.95rem}
+@media(max-width:640px){.nygrid{grid-template-columns:1fr}}
+
+/* Stars */
+.sky{position:relative;max-width:640px;margin:0 auto;border-radius:28px;overflow:hidden;border:3px solid #fff;cursor:pointer;
+box-shadow:0 16px 44px rgba(150,70,130,.4);background:radial-gradient(ellipse at 50% 125%,#a2457f 0,transparent 60%),linear-gradient(#2a1850,#4d2a74)}
+.sky canvas{display:block;width:100%;height:auto;aspect-ratio:6/5}
+.skyhint{position:absolute;left:0;right:0;bottom:16px;text-align:center;color:#ffe3ef;font:400 1.6rem var(--script);pointer-events:none;
+transition:opacity .5s;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.5}}
+.sky.go{cursor:default}.sky.go .skyhint{opacity:0;animation:none}
+.sttext{text-align:center;margin-top:26px;opacity:0;transform:translateY(12px);transition:opacity 1.2s,transform 1.2s;pointer-events:none}
+.sttext.on{opacity:1;transform:none;pointer-events:auto}
+.sttext p:first-child{font:400 clamp(2.2rem,8vw,3.2rem)/1.15 var(--script);color:var(--rose-d)}
+.sttext p+p{font-size:1.15rem;margin:8px auto 18px;max-width:34ch}
+
 /* Reasons */
 .reasons{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
 .rs{background:#fff;border:2px solid var(--line);border-radius:26px;padding:24px 22px;cursor:pointer;
@@ -199,14 +256,37 @@ footer{text-align:center;color:var(--mute);padding:40px 24px 60px;font-size:.9re
     </div>
   </div>
 </section>
+<section id="pet"><h2 id="petTitle"></h2><div class="card">
+  <div class="petbox" id="petBox"><div class="pimg" id="petImg"></div><div class="say" id="petSay"></div><div class="fx" id="petFx"></div></div>
+  <div class="bars">
+    <div class="bar"><span>Сытость</span><i><b id="bHunger"></b></i></div>
+    <div class="bar"><span>Чистота</span><i><b id="bClean"></b></i></div>
+  </div>
+  <div class="pbtns"><button class="cta" id="bFeed">Покормить 🍖</button><button class="cta" id="bBath">Искупать 🛁</button></div>
+</div></section>
 <section id="why"><h2>За что я тебя люблю</h2><div class="reasons" id="reasons"></div></section>
-<section id="quiz"><h2>Как хорошо ты меня знаешь?</h2><div class="card" id="quizBox"></div></section>
+<section id="quiz"><h2>Как хорошо ты все помнишь?</h2><div class="card" id="quizBox"></div></section>
+<section id="puzzle"><h2 id="pzTitle"></h2><div class="card">
+  <div class="pzboard" id="pzBoard"></div>
+  <p class="gnote">нажми на два кусочка, чтобы поменять их местами</p>
+  <div class="pzwin" id="pzWin"></div>
+</div></section>
 <section id="gamesec"><h2>Полетаем?</h2>
   <div class="gwrap"><div class="gbox"><canvas id="game" width="360" height="540" aria-label="Мини-игра"></canvas>
     <div class="gbanner" id="gbanner"><div class="big" id="gbTitle"></div><p id="gbText"></p><button class="cta" id="gbtn">Сыграть ещё</button></div></div>
   <p class="gnote">нажимай на игру или пробел, чтобы взмахнуть крыльями</p></div></section>
 <section id="surprise"><h2 id="scTitle"></h2>
   <div class="scratch"><div class="under" id="scText"></div><canvas id="scCanvas"></canvas></div></section>
+<section id="moment"><div class="moment"><div id="momPhoto"></div><h2 id="momTitle"></h2><p id="momText"></p></div></section>
+<section id="ny"><h2 id="nyTitle"></h2><div class="card wide">
+  <div class="counter" id="nyCounter"></div>
+  <p id="nyText"></p><ul id="nyPlan"></ul>
+  <div class="nygrid"><div id="nyPhoto"></div><div><iframe id="nyMap" title="Карта" loading="lazy" referrerpolicy="no-referrer"></iframe><a class="maplink" id="nyLink" target="_blank" rel="noopener">открыть карту целиком</a></div></div>
+</div></section>
+<section id="stars"><h2 id="stTitle"></h2>
+  <div class="sky" id="sky"><canvas id="skyCv" width="1200" height="1000" aria-label="Звёздное небо"></canvas><div class="skyhint" id="skyHint"></div></div>
+  <div class="sttext" id="stText"><p id="stL1"></p><p id="stL2"></p><button class="cta alt" id="stAgain">Ещё раз ✨</button></div>
+</section>
 <section id="letter"><h2>Письмо тебе</h2><div class="letter" id="letterBox"></div></section>
 
 <section class="ask" id="ask">
@@ -261,7 +341,7 @@ const CONFIG = {
 
   // Стёрка: что скрыто под слоем
   scratchTitle: "Сюрприз для тебя",
-  scratchText: "Ты — лучшее, что со мной случилось ♥",
+  scratchText: "Ты — лучшее, что со мной случилось, я готов умереть за тебя ♥",
   subtitle: "Этот маленький сайт — только для тебя",
   startDate: "2025-06-27T00:00:00",        // дата, когда вы начали встречаться
   question: "МяуМяу?",      // финальный вопрос
@@ -271,20 +351,50 @@ const CONFIG = {
   // Альбом: разделы (вкладки) и страницы-фотографии. caption — короткая подпись (можно оставить пустой "").
   albums: [
     { name: "В жизни", pages: [
-      { photo: "photos/irl1.jpg", caption: "", emoji: "✨" },
-      { photo: "photos/irl2.jpg", caption: "", emoji: "🌸" },
-      { photo: "photos/irl3.jpg", caption: "", emoji: "🌅" },
-      { photo: "photos/irl4.jpg", caption: "", emoji: "🥂" },
-      { photo: "photos/irl5.jpg", caption: "", emoji: "🚗" },
-      { photo: "photos/irl6.jpg", caption: "", emoji: "♥" }
+      { photo: "photos/irl1.jpg", caption: "Даже обычный день с тобой становиться особенным", emoji: "✨" },
+      { photo: "photos/irl2.jpg", caption: "Я безумно дорожу временем с тобой", emoji: "🌸" },
+      { photo: "photos/irl3.jpg", caption: "Такие моменты хочеться прежить еще 1000 раз с тобой", emoji: "🌅" },
+      { photo: "photos/irl4.jpg", caption: "Люблю когда мы дурачимся", emoji: "🥂" },
+      { photo: "photos/irl5.jpg", caption: "Гулять с тобой это лучшее время провождения", emoji: "🚗" },
+      { photo: "photos/irl6.jpg", caption: "Я с тобой хоть на край света", emoji: "♥" }
+    ]},
+    { name: "Еда", pages: [
+      { photo: "photos/food1.jpg", caption: "Кормить тебя вкусняшками делает меня счастливым", emoji: "🍰" },
+      { photo: "photos/food2.jpg", caption: "Когда ты мне это сделала я понял насколько я тебя люблю", emoji: "🍕" },
+      { photo: "photos/food3.jpg", caption: "Ты готовишь просто шикарно я всегда этим восхищаюсь", emoji: "🍣" },
+      { photo: "photos/food4.jpg", caption: "Кушать с тобой суши и смотреть как тебе хорошо это лучшее что может быть", emoji: "🍜" }
     ]},
     { name: "В играх", pages: [
-      { photo: "photos/game1.jpg", caption: "", emoji: "🎮" },
-      { photo: "photos/game2.jpg", caption: "", emoji: "😂" },
-      { photo: "photos/game3.jpg", caption: "", emoji: "🏆" },
-      { photo: "photos/game4.jpg", caption: "", emoji: "✨" }
+      { photo: "photos/game1.jpg", caption: "Любимые курьеры", emoji: "🎮" },
+      { photo: "photos/game2.jpg", caption: "Нравиться с тобой играть во что угодно", emoji: "😂" },
+      { photo: "photos/game3.jpg", caption: "Помнишь что мы творили вхыхв", emoji: "🏆" },
+      { photo: "photos/game4.jpg", caption: "Мы с тобой в каждой вселенной", emoji: "✨" }
     ]}
   ],
+
+  // Питомец: покорми и искупай. Фото — PNG или JPG
+  pet: { title: "Позаботься о малыше", photo: "photos/pet.png", emoji: "🐱", doneText: "Я сытый, чистый и самый счастливый! ♥" },
+
+  // Пазл из фото (3x3, кусочки меняются местами)
+  puzzle: { title: "Собери наше фото", photo: "photos/puzzle.jpg", winText: "Собрала! Какие же мы красивые ♥" },
+
+  // Отдельный блок с воспоминанием
+  moment: { photo: "photos/walk.jpg", title: "Помнишь тот момент?", text: "Помнишь, как я тебя провожал? Я хочу, чтобы мы были рядом навсегда ♥" },
+
+  // Новый год: таймер, план, фото и карта
+  ny: {
+    date: "2027-01-01T00:00:00",
+    title: "Новый год уже скоро",
+    text: "Мы встретим его вместе и едем в Чехию! ♥",
+    plan: ["🎄 Встретим Новый год вместе", "🚂 Поедем в Чехию", "📸 Сделаем кучу фото"],
+    photo: "photos/czech.jpg", emoji: "🎄",
+    mapEmbed: "https://www.openstreetmap.org/export/embed.html?bbox=14.25%2C50.02%2C14.62%2C50.14&layer=mapnik&marker=50.0755%2C14.4378",
+    mapLink: "https://www.openstreetmap.org/?mlat=50.0755&mlon=14.4378#map=11/50.0755/14.4378",
+    doneText: "С Новым годом, любимая! ♥"
+  },
+
+  // Звёздное небо: нажатие соединяет звёзды в слово «Ира» и сердце
+  stars: { title: "Звёздное небо", hint: "нажми на небо ✨", line1: "Ира, ты моя звезда ✨", line2: "Спасибо, что появилась у меня в жизни ♥" },
 
   // Причины любви: q — коротко, a — раскрывается по клику
   reasons: [
@@ -300,7 +410,7 @@ const CONFIG = {
   letter: [
     "Привет, Ира.",
     "Я долго думал, как лучше сказать, что ты для меня значишь. Слов всегда мало, поэтому я сделал это для тебя.",
-    "Спасибо, что ты есть. Спасибо за каждый день рядом. Ты делаешь каждый мой день лучше. Я просыпаюсь и засыпаю с мыслью о тебе.",
+    "Спасибо, что ты есть. Спасибо за каждый день рядом. Ты делаешь каждый мой день лучше. Я просыпаюсь и засыпаю с мыслью о тебе. Я правда безумно тебя люблю и не переживу потерю, котик ты самое лучшее что случалось со мной во всем мире, я сейчас пишу это и плачу боже я тебя очень люблю",
     "Я люблю тебя."
   ],
   signature: "Твой Максимка ♥"
@@ -568,6 +678,152 @@ if(CONFIG.lionImage){
   li.onload = () => { lion.innerHTML = ''; lion.appendChild(li); hand = CONFIG.lionHand; };
   li.src = CONFIG.lionImage;
 }
+// ===== Общая помощь: фото на весь экран =====
+function zoomable(box){
+  box.style.cursor = 'zoom-in';
+  box.onclick = () => { const im = box.querySelector('img'); if(im){ lb.querySelector('img').src = im.src; lb.classList.add('on'); } };
+  return box;
+}
+
+// ===== Питомец =====
+(function(){
+  const P = CONFIG.pet; let hunger = 25, clean = 25, finished = false;
+  $('petTitle').textContent = P.title;
+  $('petImg').appendChild(photo(P.photo, P.emoji, 'Питомец'));
+  const box = $('petBox'), fx = $('petFx');
+  function update(){
+    $('bHunger').style.width = hunger + '%'; $('bClean').style.width = clean + '%';
+    $('petImg').style.filter = `sepia(${((100-clean)/100*.9).toFixed(2)}) saturate(${(.6+.4*clean/100).toFixed(2)})`;
+    $('petSay').textContent = (hunger >= 100 && clean >= 100) ? P.doneText : hunger < 60 ? 'Я голодный 🥺' : clean < 60 ? 'Хочу в ванну 🛁' : 'Почти идеально ✨';
+    if(hunger >= 100 && clean >= 100 && !finished){ finished = true; const r = box.getBoundingClientRect(); burst(r.left + r.width/2, r.top + r.height/2, 30); }
+  }
+  function anim(cls, n, cls2, emoji){
+    box.classList.remove('chomp','wash'); void box.offsetWidth; box.classList.add(cls);
+    for(let i = 0; i < n; i++){
+      const s = document.createElement('span'); s.className = cls2; s.textContent = emoji;
+      s.style.left = (cls2 === 'bub' ? 10 + Math.random()*80 : 40 + Math.random()*20) + '%';
+      s.style.animationDelay = (i*.12) + 's'; fx.appendChild(s); setTimeout(() => s.remove(), 1600 + i*120);
+    }
+  }
+  $('bFeed').onclick = () => { hunger = Math.min(100, hunger + 25); anim('chomp', 3, 'food', '🍖'); update(); };
+  $('bBath').onclick = () => { clean = Math.min(100, clean + 25); anim('wash', 6, 'bub', '🫧'); update(); };
+  update();
+})();
+
+// ===== Пазл =====
+(function(){
+  const Z = CONFIG.puzzle, N = 3, board = $('pzBoard');
+  $('pzTitle').textContent = Z.title;
+  let order, sel = -1, solved = false;
+  const isSolved = () => order.every((t,i) => t === i);
+  function shuffle(){
+    do{ order = [...Array(N*N).keys()];
+      for(let k = 0; k < 6; k++){ const a = Math.floor(Math.random()*N*N); let b = Math.floor(Math.random()*N*N); if(a === b) b = (b+1) % (N*N); [order[a], order[b]] = [order[b], order[a]]; }
+    } while(isSolved());
+    sel = -1; solved = false; $('pzWin').textContent = ''; board.classList.remove('done');
+  }
+  function render(){
+    board.style.gridTemplateColumns = `repeat(${N},1fr)`; board.innerHTML = '';
+    order.forEach((t,pos) => {
+      const c = document.createElement('button'); c.className = 'pz' + (pos === sel ? ' sel' : '') + (t === pos && !solved ? ' ok' : '');
+      const im = document.createElement('img'); im.alt = ''; im.src = Z.photo;
+      im.style.cssText = `width:${N*100}%;height:${N*100}%;left:${-(t%N)*100}%;top:${-Math.floor(t/N)*100}%`;
+      im.onerror = () => { im.remove(); c.textContent = t + 1; };
+      c.appendChild(im); c.onclick = () => pick(pos); board.appendChild(c);
+    });
+  }
+  function pick(pos){
+    if(solved) return;
+    if(sel < 0){ sel = pos; }
+    else if(sel === pos){ sel = -1; }
+    else { [order[sel], order[pos]] = [order[pos], order[sel]]; sel = -1;
+      if(isSolved()){ solved = true; board.classList.add('done'); $('pzWin').textContent = Z.winText;
+        const r = board.getBoundingClientRect(); burst(r.left + r.width/2, r.top + r.height/2, 30); } }
+    render();
+  }
+  shuffle(); render();
+})();
+
+// ===== Воспоминание =====
+(function(){
+  const M = CONFIG.moment;
+  $('momPhoto').appendChild(zoomable(photo(M.photo, '🌸', M.title)));
+  $('momTitle').textContent = M.title; $('momText').textContent = M.text;
+})();
+
+// ===== Новый год =====
+(function(){
+  const Y = CONFIG.ny, target = new Date(Y.date);
+  $('nyTitle').textContent = Y.title; $('nyText').textContent = Y.text;
+  Y.plan.forEach(t => { const li = document.createElement('li'); li.textContent = t; $('nyPlan').appendChild(li); });
+  $('nyPhoto').appendChild(zoomable(photo(Y.photo, Y.emoji, 'Чехия')));
+  $('nyMap').src = Y.mapEmbed; $('nyLink').href = Y.mapLink;
+  function t(){
+    const d = target - Date.now();
+    if(d <= 0){ $('nyCounter').innerHTML = `<div style="min-width:0;padding:12px 22px"><b>${Y.doneText}</b></div>`; return; }
+    const days = Math.floor(d/864e5), h = Math.floor(d%864e5/36e5), m = Math.floor(d%36e5/6e4), sc = Math.floor(d%6e4/1e3);
+    $('nyCounter').innerHTML = [[days,['день','дня','дней']],[h,['час','часа','часов']],[m,['минута','минуты','минут']],[sc,['секунда','секунды','секунд']]]
+      .map(([n,f]) => `<div><b>${n}</b><span>${plural(n,f)}</span></div>`).join('');
+  }
+  t(); setInterval(t, 1000);
+})();
+
+// ===== Звёздное небо =====
+(function(){
+  const S = CONFIG.stars; $('stTitle').textContent = S.title; $('skyHint').textContent = S.hint;
+  $('stL1').textContent = S.line1; $('stL2').textContent = S.line2;
+  const cv = $('skyCv'), c = cv.getContext('2d'), sky = $('sky'), W = 600, H = 500;
+  c.scale(2, 2);
+  const gl = (ox, w, pts) => pts.map(p => [ox + p[0]*w, 85 + p[1]*150]);
+  const raw = [
+    ...[[[0,0],[0,1]], [[1,0],[1,1]], [[1,0],[0,1]]].map(p => gl(95, 110, p)),                       // И
+    gl(245, 110, [[0,1],[0,0],[.8,0],[1,.2],[1,.4],[.8,.6],[0,.6]]),                                   // Р
+    ...[[[0,1],[.5,0],[1,1]], [[.22,.66],[.78,.66]]].map(p => gl(395, 110, p))                         // А
+  ];
+  const heart = [];
+  for(let i = 0; i <= 14; i++){ const t = i/14*Math.PI*2;
+    heart.push([300 + 16*Math.pow(Math.sin(t),3)*5.2, 372 - (13*Math.cos(t) - 5*Math.cos(2*t) - 2*Math.cos(3*t) - Math.cos(4*t))*5.2]); }
+  raw.push(heart);
+  const nodes = [], idx = {}, segs = [];
+  raw.forEach(st => st.forEach((p,i) => {
+    const k = p[0].toFixed(0) + ',' + p[1].toFixed(0);
+    if(!(k in idx)){ idx[k] = nodes.length; nodes.push({tx: p[0], ty: p[1], sx: 0, sy: 0}); }
+    if(i > 0){ const pk = st[i-1][0].toFixed(0) + ',' + st[i-1][1].toFixed(0); segs.push([idx[pk], idx[k]]); }
+  }));
+  const bg = Array.from({length: 80}, () => ({x: Math.random()*W, y: Math.random()*H, r: .5 + Math.random()*1.4, ph: Math.random()*6, sp: 1 + Math.random()*2}));
+  const scatter = () => nodes.forEach(n => { n.sx = 40 + Math.random()*(W-80); n.sy = 30 + Math.random()*(H-60); });
+  scatter();
+  const MOVE = 1.8, L0 = 1.2, LD = 2.4, END = 4.2;
+  let t0 = null, done = false, vis = false, running = false;
+  const clamp = v => Math.max(0, Math.min(1, v));
+  function draw(now){
+    c.clearRect(0, 0, W, H);
+    bg.forEach(s => { c.globalAlpha = .25 + .75*Math.abs(Math.sin(now*s.sp + s.ph)); c.fillStyle = '#fff'; c.beginPath(); c.arc(s.x, s.y, s.r, 0, 7); c.fill(); });
+    c.globalAlpha = 1;
+    const el = t0 === null ? -1 : now - t0;
+    const e = 1 - Math.pow(1 - clamp(el/MOVE), 3);
+    const pos = nodes.map(n => el < 0 ? [n.sx, n.sy] : [n.sx + (n.tx-n.sx)*e, n.sy + (n.ty-n.sy)*e]);
+    const gap = LD / segs.length;
+    c.lineCap = 'round'; c.strokeStyle = 'rgba(255,225,240,.9)'; c.lineWidth = 2; c.shadowColor = '#ffb3d1'; c.shadowBlur = 8;
+    segs.forEach((sg, i) => {
+      const f = clamp((el - L0 - i*gap) / (gap*1.5)); if(f <= 0) return;
+      const a = pos[sg[0]], b = pos[sg[1]];
+      c.beginPath(); c.moveTo(a[0], a[1]); c.lineTo(a[0] + (b[0]-a[0])*f, a[1] + (b[1]-a[1])*f); c.stroke();
+    });
+    c.shadowBlur = 14;
+    nodes.forEach((n, i) => {
+      const r = 2.6 + 1.2*Math.sin(now*3 + i) + (done ? 1 : 0);
+      c.fillStyle = '#fff'; c.beginPath(); c.arc(pos[i][0], pos[i][1], r, 0, 7); c.fill();
+    });
+    c.shadowBlur = 0;
+    if(el > END && !done){ done = true; $('stText').classList.add('on'); const r = sky.getBoundingClientRect(); burst(r.left + r.width/2, r.top + r.height/2, 26); }
+  }
+  function loop(t){ if(!vis){ running = false; return; } draw(t/1000); requestAnimationFrame(loop); }
+  new IntersectionObserver(en => { vis = en[0].isIntersecting; if(vis && !running){ running = true; requestAnimationFrame(loop); } }).observe(sky);
+  sky.onclick = () => { if(t0 === null){ t0 = performance.now()/1000; sky.classList.add('go'); } };
+  $('stAgain').onclick = () => { t0 = null; done = false; scatter(); sky.classList.remove('go'); $('stText').classList.remove('on'); };
+})();
+
 // Звук
 const bgm = CONFIG.music ? new Audio(CONFIG.music) : null;
 const ult = CONFIG.ultSound ? new Audio(CONFIG.ultSound) : null;
